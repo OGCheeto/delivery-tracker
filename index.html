@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Delivery &amp; Car Tracker</title>
+<meta name="description" content="Log Instacart shifts, mileage and car expenses for taxes.">
+<meta name="theme-color" content="#0a8f5b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Car Tracker">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzBhOGY1YiIvPjxwYXRoIGQ9Ik05NiAzMDBsNDAtOTJjOC0xOCAyNC0yOCA0NC0yOGgxNTJjMjAgMCAzNiAxMCA0NCAyOGw0MCA5MnY4NGMwIDEwLTggMTgtMTggMThoLTI4Yy0xMCAwLTE4LTgtMTgtMTh2LTIySDE2MHYyMmMwIDEwLTggMTgtMTggMThoLTI4Yy0xMCAwLTE4LTgtMTgtMTh6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTE1MCAyOTJsMjgtNjZjMy03IDktMTEgMTctMTFoMTIyYzggMCAxNCA0IDE3IDExbDI4IDY2eiIgZmlsbD0iIzBhOGY1YiIvPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjMzMCIgcj0iMjIiIGZpbGw9IiMwYThmNWIiLz48Y2lyY2xlIGN4PSIzNTIiIGN5PSIzMzAiIHI9IjIyIiBmaWxsPSIjMGE4ZjViIi8+PHBhdGggZD0iTTI1NiA3MGMtMzAgMC01MiAyMi01MiA1MCAwIDM4IDUyIDg2IDUyIDg2czUyLTQ4IDUyLTg2YzAtMjgtMjItNTAtNTItNTB6bTAgNzBhMjAgMjAgMCAxMTAtNDAgMjAgMjAgMCAwMTAgNDB6IiBmaWxsPSIjZmZkMzRkIi8+PC9zdmc+Cg==">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="manifest" id="manifestLink">
+<style>
+:root{
+  --bg:#f3f6f4;--card:#fff;--text:#14201a;--muted:#5d6b64;--line:#dfe6e2;
+  --accent:#0a8f5b;--accent-ink:#fff;--accent-soft:#e3f4ec;--danger:#c62828;--danger-soft:#fdeaea;
+  --warn:#b26a00;--input:#fff;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.05);
+  --tabh:64px;--r:16px;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1512;--card:#18211c;--text:#e8efeb;--muted:#9aa9a1;--line:#2a3630;
+  --accent:#2fc185;--accent-ink:#04140c;--accent-soft:#16352a;--danger:#ff6b6b;--danger-soft:#3a1d1d;
+  --warn:#ffb74d;--input:#111915;--shadow:none}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom) + 16px)}
+header{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;border-bottom:1px solid var(--line)}
+header h1{margin:0;font-size:20px;font-weight:700}
+header .sub{color:var(--muted);font-size:13px}
+main{padding:12px 14px;max-width:640px;margin:0 auto}
+.view{display:none}.view.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card h2{margin:0 0 10px;font-size:17px}
+.muted{color:var(--muted)}.small{font-size:13px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:17px;font-weight:600;cursor:pointer}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.btn.big{min-height:72px;font-size:21px;border-radius:18px}
+.btn.danger{background:var(--danger-soft);color:var(--danger);border-color:transparent}
+.btn.ghost{background:transparent}
+.row{display:flex;gap:10px}.row>*{flex:1;min-width:0}
+.mt{margin-top:10px}
+label{display:block;font-size:14px;font-weight:600;color:var(--muted);margin:12px 0 6px}
+input,select,textarea{width:100%;min-height:50px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--input);color:var(--text);font-size:17px;font-family:inherit}
+textarea{min-height:70px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.err{color:var(--danger);font-size:14px;margin-top:6px;min-height:0}
+.calc{margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--accent-soft);font-weight:600}
+.calc.bad{background:var(--danger-soft);color:var(--danger)}
+.live{border:2px solid var(--accent)}
+.live .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-right:6px;animation:p 1.4s infinite}
+@keyframes p{50%{opacity:.25}}
+.stat{font-size:28px;font-weight:700;margin:4px 0}
+.list{list-style:none;margin:0;padding:0}
+.item{display:flex;gap:10px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.item .main{flex:1;min-width:0}
+.item .t{font-weight:600}
+.item .s{color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .amt{font-weight:700;text-align:right;white-space:nowrap}
+.iconbtn{min-width:44px;min-height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:18px;cursor:pointer}
+.iconbtn.del{color:var(--danger)}
+.chip{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--accent-soft);font-size:12px;font-weight:600;margin-right:4px}
+table{width:100%;border-collapse:collapse}
+td{padding:8px 0;border-top:1px solid var(--line)}
+td:last-child{text-align:right;font-weight:600}
+tr.total td{font-weight:700;border-top:2px solid var(--text)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:var(--accent-soft);border-radius:14px;padding:12px}
+.kpi .k{font-size:13px;color:var(--muted);font-weight:600}
+.kpi .v{font-size:22px;font-weight:700}
+.note{font-size:13px;color:var(--muted);background:var(--bg);border-radius:12px;padding:10px 12px;margin-top:10px}
+.empty{color:var(--muted);text-align:center;padding:16px 0}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{flex:1;height:var(--tabh);border:0;background:none;color:var(--muted);font-size:12px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer}
+nav.tabs button svg{width:26px;height:26px}
+nav.tabs button.on{color:var(--accent)}
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.sheet-bg.open{display:flex}
+.sheet{background:var(--card);width:100%;max-width:640px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom))}
+.sheet h2{margin:4px 0 4px;font-size:20px}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 8px}
+.toast{position:fixed;left:50%;bottom:calc(var(--tabh) + env(safe-area-inset-bottom) + 14px);transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:600;z-index:30;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1}
+.prefix{position:relative}.prefix span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:17px}
+.prefix input{padding-left:26px}
+.rp{border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:10px}
+.rp-h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600}
+.rp .row{align-items:center;margin-top:8px}
+.rp-calc{text-align:right;font-weight:700}
+.rp-calc .small{font-weight:400}
+.chip.custom{background:var(--danger-soft);color:var(--warn)}
+.linkbtn{background:none;border:0;color:var(--accent);font-weight:600;font-size:14px;padding:8px 0;min-height:36px;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <h1>Delivery &amp; Car Tracker</h1>
+  <div class="sub" id="hdrSub">Mileage &amp; expenses for tax time</div>
+</header>
+
+<main>
+<!-- ============ SHIFTS ============ -->
+<section class="view active" id="view-shifts">
+  <div id="shiftAction"></div>
+  <div class="card">
+    <div class="row" style="align-items:center">
+      <h2 style="margin:0">Shifts</h2>
+      <button class="btn" style="flex:0 0 auto;width:auto;min-height:44px;font-size:15px" id="addShiftManual">+ Add manually</button>
+    </div>
+    <div class="small muted mt" id="shiftMonthLine"></div>
+    <ul class="list mt" id="shiftList"></ul>
+  </div>
+</section>
+
+<!-- ============ EXPENSES ============ -->
+<section class="view" id="view-expenses">
+  <button class="btn primary big" id="addExpense">+ Add car expense</button>
+  <div class="card mt">
+    <h2>Expenses</h2>
+    <div class="small muted" id="expMonthLine"></div>
+    <ul class="list mt" id="expList"></ul>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="view" id="view-summary">
+  <div class="card">
+    <div class="row">
+      <div><label for="fYear" style="margin-top:0">Year</label><select id="fYear"></select></div>
+      <div><label for="fMonth" style="margin-top:0">Month</label><select id="fMonth"></select></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2 id="sumTitle">Summary</h2>
+    <div class="grid2">
+      <div class="kpi"><div class="k">Business miles</div><div class="v" id="kMiles">0</div></div>
+      <div class="kpi"><div class="k">Shifts / orders</div><div class="v" id="kShifts">0</div></div>
+      <div class="kpi"><div class="k">Earnings</div><div class="v" id="kEarn">$0</div></div>
+      <div class="kpi"><div class="k">Tips</div><div class="v" id="kTips">$0</div></div>
+    </div>
+    <table class="mt"><tbody>
+      <tr><td>Total pay (earnings + tips)</td><td id="kPay">$0.00</td></tr>
+      <tr><td>Gas purchased</td><td id="kGal">0 gal</td></tr>
+    </tbody></table>
+  </div>
+  <div class="card">
+    <h2>Car expenses by category</h2>
+    <table><tbody id="catTable"></tbody></table>
+  </div>
+  <div class="card">
+    <h2>Mileage deduction estimate</h2>
+    <div class="small muted">Rates are applied by each shift's date. Rates are editable — tap a rate to override it.</div>
+    <div id="rateRows"></div>
+    <table class="mt"><tbody>
+      <tr><td>Standard mileage deduction<br><span class="small muted" id="dedFormula"></span></td><td id="kDed">$0.00</td></tr>
+      <tr><td>Parking &amp; tolls (deductible on top of standard rate)</td><td id="kPark">$0.00</td></tr>
+      <tr class="total"><td>Standard method total</td><td id="kStdTotal">$0.00</td></tr>
+      <tr><td>Actual expense method (all logged car costs)</td><td id="kActual">$0.00</td></tr>
+    </tbody></table>
+    <div class="note" id="compareNote"></div>
+    <div class="note" id="rateNote"><b>Built-in IRS business mileage rates:</b> 2024 $0.67/mi · 2025 $0.70/mi · 2026 Jan 1–Jun 30 $0.725/mi · 2026 Jul 1–Dec 31 $0.76/mi. Always confirm current rates at irs.gov (search "standard mileage rates") and override above if they change.</div>
+    <div class="note"><b>Not tax advice.</b> These are estimates from what you've logged. Confirm the IRS rate for each year, and check with a tax preparer about which method you can use (the standard rate generally has to be chosen in the first year you use the car for business). The actual-expense figure is 100% of logged costs; a preparer will apply your business-use percentage.</div>
+  </div>
+  <div class="card">
+    <h2>Export for taxes</h2>
+    <div class="small muted">CSV files use the year/month selected above and open in Excel, Numbers or Google Sheets.</div>
+    <button class="btn primary mt" id="expShiftsCsv">⬇ Deliveries / mileage CSV</button>
+    <button class="btn primary mt" id="expExpCsv">⬇ Car expenses CSV</button>
+  </div>
+  <div class="card">
+    <h2>Backup &amp; restore</h2>
+    <div class="small muted">Your data lives only on this phone, in this browser. Save a backup now and then (e.g. to Files or email it to yourself).</div>
+    <button class="btn mt" id="expJson">⬇ Download full backup (JSON)</button>
+    <button class="btn mt" id="impJsonBtn">⬆ Restore from backup</button>
+    <input type="file" id="impJson" accept=".json,application/json" hidden>
+    <div class="small muted mt" id="storageInfo"></div>
+  </div>
+</section>
+</main>
+
+<nav class="tabs" role="tablist">
+  <button class="on" data-tab="shifts" role="tab" aria-label="Shifts">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1.5-6.5A2 2 0 0 0 15.6 9H8.4a2 2 0 0 0-1.9 1.5z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M3 13h2M19 13h2"/></svg>Shifts</button>
+  <button data-tab="expenses" role="tab" aria-label="Expenses">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v17"/><path d="M2 22h13M6 8h5M14 10h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V9l-3-3"/></svg>Expenses</button>
+  <button data-tab="summary" role="tab" aria-label="Summary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Summary</button>
+</nav>
+
+<div class="sheet-bg" id="sheetBg"><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+'use strict';
+var KEY='deliveryCarTracker.v1';
+/* Official IRS business standard mileage rates (cents per mile), by date period.
+   Confirm at irs.gov. Users can override any period in the Summary tab. */
+var IRS_RATES=[
+  {id:'2024',  start:'2024-01-01',end:'2024-12-31',rate:0.67},
+  {id:'2025',  start:'2025-01-01',end:'2025-12-31',rate:0.70},
+  {id:'2026H1',start:'2026-01-01',end:'2026-06-30',rate:0.725},
+  {id:'2026H2',start:'2026-07-01',end:'2026-12-31',rate:0.76}
+];
+var CATS=['Gas','Oil change','Oil filter','Air filter','Cabin filter','Belts','Tires','Brakes','Battery','Repairs','Maintenance','Car wash','Insurance','Registration','Parking/Tolls','Other'];
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+/* ---------- manifest (inline, via data URI) ---------- */
+try{
+  var iconSvg=document.querySelector('link[rel=icon]').href, iconPng=document.querySelector('link[rel=apple-touch-icon]').href;
+  var man={name:'Delivery & Car Tracker',short_name:'Car Tracker',display:'standalone',start_url:'.',background_color:'#f3f6f4',theme_color:'#0a8f5b',
+    icons:[{src:iconPng,sizes:'180x180',type:'image/png'},{src:iconSvg,sizes:'any',type:'image/svg+xml',purpose:'any'}]};
+  document.getElementById('manifestLink').href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(man));
+}catch(e){}
+
+/* ---------- storage ---------- */
+function blank(){return {version:2,shifts:[],expenses:[],active:null,settings:{periodRates:{}}};}
+/* v1 stored one override per year in settings.rates {"2025":0.7}. v2 stores overrides per rate period
+   in settings.periodRates {"2026H1":0.725}. Migration: years that now have built-in official IRS rates use
+   the official table (old value kept in settings.legacyRates for reference); other years keep the user's rate. */
+function normalize(d){
+  d.settings=d.settings||{};
+  var s=d.settings;s.periodRates=s.periodRates||{};
+  if(s.rates&&typeof s.rates==='object'){
+    Object.keys(s.rates).forEach(function(y){
+      var v=num(s.rates[y]);if(v==null)return;
+      if(IRS_RATES.some(function(p){return p.start.slice(0,4)===y;})){s.legacyRates=s.legacyRates||{};s.legacyRates[y]=v;}
+      else if(s.periodRates[y]==null)s.periodRates[y]=v;
+    });
+    delete s.rates;
+  }
+  if(d.active===undefined)d.active=null;
+  d.version=2;return d;
+}
+function load(){
+  try{var raw=localStorage.getItem(KEY);var d=JSON.parse(raw);
+    if(d&&Array.isArray(d.shifts)&&Array.isArray(d.expenses)){var old=d.version!==2;normalize(d);if(old){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}return d;}}catch(e){}
+  return blank();
+}
+var db;
+var storageOk=true;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));storageOk=true;}catch(e){storageOk=false;alert('Could not save — storage is full or blocked (private browsing?). Export a backup.');}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function pad(n){return (n<10?'0':'')+n;}
+function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function nowTime(){var d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes());}
+function num(v){if(v===null||v===undefined||v==='')return null;var n=parseFloat(String(v).replace(/[$,\s]/g,''));return isFinite(n)?n:null;}
+function r2(n){return Math.round((n+Number.EPSILON)*100)/100;}
+function r1(n){return Math.round((n+Number.EPSILON)*10)/10;}
+var usd=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+function money(n){return usd.format(n||0);}
+function fmtNum(n,d){return (n||0).toLocaleString('en-US',{maximumFractionDigits:d==null?1:d});}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fmtDate(s){if(!s)return '';var p=s.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});}
+function fmtTime(t){if(!t)return '';var p=t.split(':');var h=+p[0];return ((h%12)||12)+':'+p[1]+(h<12?' AM':' PM');}
+function miles(s){return (s.endOdo!=null&&s.startOdo!=null)?r1(s.endOdo-s.startOdo):0;}
+function byDateDesc(a,b){return (b.date+(b.startTime||'')).localeCompare(a.date+(a.startTime||''))||(b.created||0)-(a.created||0);}
+db=load();
+function periodsForYear(y){
+  y=String(y);
+  var b=IRS_RATES.filter(function(p){return p.start.slice(0,4)===y;});
+  if(b.length)return b.map(function(p){return {id:p.id,start:p.start,end:p.end,rate:p.rate,official:true};});
+  var first=IRS_RATES[0],last=IRS_RATES[IRS_RATES.length-1];
+  var guess=y>last.start.slice(0,4)?last.rate:first.rate;
+  return [{id:y,start:y+'-01-01',end:y+'-12-31',rate:guess,official:false}];
+}
+function periodForDate(d){var ps=periodsForYear(d.slice(0,4));for(var i=0;i<ps.length;i++){if(d>=ps[i].start&&d<=ps[i].end)return ps[i];}return ps[0];}
+function rateOf(p){var o=db.settings.periodRates[p.id];return (o!=null&&isFinite(o))?o:p.rate;}
+function rateForDate(d){return rateOf(periodForDate(d));}
+function rpLabel(p){
+  var y=p.start.slice(0,4);
+  if(p.start.slice(5)==='01-01'&&p.end.slice(5)==='12-31')return y+' (full year)';
+  function md(s){return MONTHS[+s.slice(5,7)-1].slice(0,3)+' '+(+s.slice(8,10));}
+  return md(p.start)+' – '+md(p.end)+', '+y;
+}
+function fmtRate(v){return '$'+v.toFixed(3).replace(/0$/,'');}
+function lastOdometer(){
+  var best=null;
+  db.shifts.forEach(function(s){if(s.endOdo!=null&&(best==null||s.endOdo>best))best=s.endOdo;});
+  db.expenses.forEach(function(e){if(e.odometer!=null&&(best==null||e.odometer>best))best=e.odometer;});
+  return best;
+}
+var toastT;
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},1800);}
+
+/* ---------- tabs ---------- */
+var curTab='shifts';
+function showTab(t){
+  curTab=t;
+  document.querySelectorAll('.view').forEach(function(v){v.classList.toggle('active',v.id==='view-'+t);});
+  document.querySelectorAll('nav.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.tab===t);});
+  render();window.scrollTo(0,0);
+}
+document.querySelectorAll('nav.tabs button').forEach(function(b){b.addEventListener('click',function(){showTab(b.dataset.tab);});});
+
+/* ---------- sheet (modal) ---------- */
+function openSheet(html,onReady){
+  $('sheet').innerHTML='<div class="grab"></div>'+html;
+  $('sheetBg').classList.add('open');document.body.style.overflow='hidden';
+  if(onReady)onReady($('sheet'));
+}
+function closeSheet(){$('sheetBg').classList.remove('open');document.body.style.overflow='';$('sheet').innerHTML='';}
+$('sheetBg').addEventListener('click',function(e){if(e.target===this)closeSheet();});
+
+function field(id,lab,type,val,extra){
+  extra=extra||'';
+  var v=(val==null?'':esc(val));
+  if(type==='money')return '<label for="'+id+'">'+lab+'</label><div class="prefix"><span>$</span><input id="'+id+'" type="number" inputmode="decimal" step="0.01" min="0" value="'+v+'" '+extra+'></div>';
+  if(type==='odo')return '<label for="'+id+'">'+lab+'</label><input id="'+id+'" type="number" inputmode="decimal" step="0.1" min="0" value="'+v+'" '+extra+'>';
+  if(type==='textarea')return '<label for="'+id+'">'+lab+'</label><textarea id="'+id+'" '+extra+'>'+v+'</textarea>';
+  return '<label for="'+id+'">'+lab+'</label><input id="'+id+'" type="'+type+'" value="'+v+'" '+extra+'>';
+}
+
+/* ---------- shift flows ---------- */
+function startShiftSheet(){
+  var last=lastOdometer();
+  openSheet('<h2>Start shift</h2><div class="small muted">'+(last!=null?'Last recorded odometer: <b>'+fmtNum(last)+'</b>':'Enter the odometer reading on your dash.')+'</div>'+
+    field('sOdo','Start odometer','odo',last,'autofocus')+'<div class="err" id="sErr"></div>'+
+    '<button class="btn primary big mt" id="sGo">▶ Start shift now</button><button class="btn ghost mt" id="sCancel">Cancel</button>',
+  function(){
+    var inp=$('sOdo');setTimeout(function(){inp.focus();inp.select&&inp.select();},50);
+    $('sCancel').onclick=closeSheet;
+    $('sGo').onclick=function(){
+      var o=num(inp.value);
+      if(o==null||o<0){$('sErr').textContent='Enter the start odometer.';return;}
+      db.active={id:uid(),date:todayStr(),startTime:nowTime(),startOdo:o,startedAt:Date.now()};
+      save();closeSheet();render();toast('Shift started');
+    };
+  });
+}
+function endShiftSheet(){
+  var a=db.active;
+  openSheet('<h2>End shift</h2><div class="small muted">Started '+fmtTime(a.startTime)+' · '+fmtDate(a.date)+' · start odometer <b>'+fmtNum(a.startOdo)+'</b></div>'+
+    field('eOdo','End odometer','odo','','autofocus')+'<div class="calc" id="eCalc">Miles: —</div>'+
+    '<div class="row"><div>'+field('eEarn','Earnings','money','')+'</div><div>'+field('eTips','Tips','money','')+'</div></div>'+
+    field('eOrders','Orders / batches','number','','inputmode="numeric" min="0" step="1"')+
+    field('eNotes','Notes (optional)','textarea','')+'<div class="err" id="eErr"></div>'+
+    '<button class="btn primary big mt" id="eGo">■ Save &amp; end shift</button>'+
+    '<div class="row mt"><button class="btn ghost" id="eCancel">Not yet</button><button class="btn danger" id="eDiscard">Discard shift</button></div>',
+  function(){
+    var inp=$('eOdo');setTimeout(function(){inp.focus();},50);
+    inp.oninput=function(){var e=num(inp.value);var c=$('eCalc');if(e==null){c.textContent='Miles: —';c.className='calc';return;}
+      var m=r1(e-a.startOdo);c.textContent=m<0?'End odometer is lower than start ('+fmtNum(a.startOdo)+')':'Miles: '+fmtNum(m);c.className='calc'+(m<0?' bad':'');};
+    $('eCancel').onclick=closeSheet;
+    $('eDiscard').onclick=function(){if(confirm('Discard this in-progress shift? Nothing will be saved.')){db.active=null;save();closeSheet();render();toast('Shift discarded');}};
+    $('eGo').onclick=function(){
+      var e=num(inp.value);
+      if(e==null){$('eErr').textContent='Enter the end odometer.';return;}
+      if(e<a.startOdo){$('eErr').textContent='End odometer must be at least the start ('+fmtNum(a.startOdo)+').';return;}
+      var s={id:a.id,date:a.date,startTime:a.startTime,endTime:nowTime(),startOdo:a.startOdo,endOdo:e,
+        earnings:num($('eEarn').value),tips:num($('eTips').value),orders:num($('eOrders').value),notes:$('eNotes').value.trim(),created:Date.now()};
+      db.shifts.push(s);db.active=null;save();closeSheet();render();toast('Shift saved · '+fmtNum(miles(s))+' mi');
+    };
+  });
+}
+function editShiftSheet(id){
+  var s=id?db.shifts.find(function(x){return x.id===id;}):null;
+  var isNew=!s;
+  if(isNew)s={date:todayStr(),startOdo:lastOdometer()};
+  openSheet('<h2>'+(isNew?'Add shift':'Edit shift')+'</h2>'+
+    field('fDate','Date','date',s.date,'required')+
+    '<div class="row"><div>'+field('fST','Start time','time',s.startTime)+'</div><div>'+field('fET','End time','time',s.endTime)+'</div></div>'+
+    '<div class="row"><div>'+field('fSO','Start odometer','odo',s.startOdo)+'</div><div>'+field('fEO','End odometer','odo',s.endOdo)+'</div></div>'+
+    '<div class="calc" id="fCalc">Miles: —</div>'+
+    '<div class="row"><div>'+field('fEarn','Earnings','money',s.earnings)+'</div><div>'+field('fTips','Tips','money',s.tips)+'</div></div>'+
+    field('fOrders','Orders / batches','number',s.orders,'inputmode="numeric" min="0" step="1"')+
+    field('fNotes','Notes','textarea',s.notes)+'<div class="err" id="fErr"></div>'+
+    '<button class="btn primary big mt" id="fSave">Save shift</button>'+
+    (isNew?'':'<button class="btn danger mt" id="fDel">Delete shift</button>')+
+    '<button class="btn ghost mt" id="fCancel">Cancel</button>',
+  function(){
+    function upd(){var so=num($('fSO').value),eo=num($('fEO').value),c=$('fCalc');
+      if(so==null||eo==null){c.textContent='Miles: —';c.className='calc';return;}
+      var m=r1(eo-so);c.textContent=m<0?'End odometer must be ≥ start odometer':'Miles: '+fmtNum(m);c.className='calc'+(m<0?' bad':'');}
+    $('fSO').oninput=upd;$('fEO').oninput=upd;upd();
+    $('fCancel').onclick=closeSheet;
+    if(!isNew)$('fDel').onclick=function(){if(delShift(s.id))closeSheet();};
+    $('fSave').onclick=function(){
+      var so=num($('fSO').value),eo=num($('fEO').value),date=$('fDate').value;
+      if(!date){$('fErr').textContent='Pick a date.';return;}
+      if(so==null||eo==null){$('fErr').textContent='Enter both start and end odometer.';return;}
+      if(eo<so){$('fErr').textContent='End odometer must be greater than or equal to start.';return;}
+      var o={id:s.id||uid(),date:date,startTime:$('fST').value,endTime:$('fET').value,startOdo:so,endOdo:eo,
+        earnings:num($('fEarn').value),tips:num($('fTips').value),orders:num($('fOrders').value),notes:$('fNotes').value.trim(),created:s.created||Date.now()};
+      if(isNew)db.shifts.push(o);else db.shifts[db.shifts.findIndex(function(x){return x.id===s.id;})]=o;
+      save();closeSheet();render();toast(isNew?'Shift added':'Shift updated');
+    };
+  });
+}
+function delShift(id){
+  var s=db.shifts.find(function(x){return x.id===id;});if(!s)return false;
+  if(!confirm('Delete the shift on '+fmtDate(s.date)+' ('+fmtNum(miles(s))+' mi)? This cannot be undone.'))return false;
+  db.shifts=db.shifts.filter(function(x){return x.id!==id;});save();render();toast('Shift deleted');return true;
+}
+
+/* ---------- expense flows ---------- */
+function editExpenseSheet(id){
+  var x=id?db.expenses.find(function(e){return e.id===id;}):null;
+  var isNew=!x;if(isNew)x={date:todayStr(),category:'Gas'};
+  var opts=CATS.map(function(c){return '<option'+(c===x.category?' selected':'')+'>'+esc(c)+'</option>';}).join('');
+  openSheet('<h2>'+(isNew?'Add expense':'Edit expense')+'</h2>'+
+    '<div class="row"><div>'+field('xDate','Date','date',x.date)+'</div><div><label for="xCat">Category</label><select id="xCat">'+opts+'</select></div></div>'+
+    field('xAmt','Amount','money',x.amount)+
+    '<div id="xGalWrap">'+field('xGal','Gallons (gas)','number',x.gallons,'inputmode="decimal" step="0.001" min="0"')+'<div class="small muted" id="xPpg" style="margin-top:6px"></div></div>'+
+    field('xOdo','Odometer (optional)','odo',x.odometer)+
+    field('xVendor','Vendor / store','text',x.vendor,'autocomplete="on" placeholder="e.g. Shell, Jiffy Lube"')+
+    field('xNotes','Notes','textarea',x.notes)+'<div class="err" id="xErr"></div>'+
+    '<button class="btn primary big mt" id="xSave">Save expense</button>'+
+    (isNew?'':'<button class="btn danger mt" id="xDel">Delete expense</button>')+
+    '<button class="btn ghost mt" id="xCancel">Cancel</button>',
+  function(){
+    function upd(){var g=$('xCat').value==='Gas';$('xGalWrap').style.display=g?'':'none';
+      var a=num($('xAmt').value),gl=num($('xGal').value);$('xPpg').textContent=(g&&a&&gl)?'≈ '+money(a/gl)+' per gallon':'';}
+    $('xCat').onchange=upd;$('xAmt').oninput=upd;$('xGal').oninput=upd;upd();
+    if(isNew){var xa=$('xAmt');setTimeout(function(){xa.focus();},50);}
+    $('xCancel').onclick=closeSheet;
+    if(!isNew)$('xDel').onclick=function(){if(delExpense(x.id))closeSheet();};
+    $('xSave').onclick=function(){
+      var amt=num($('xAmt').value),date=$('xDate').value,cat=$('xCat').value;
+      if(!date){$('xErr').textContent='Pick a date.';return;}
+      if(amt==null||amt<0){$('xErr').textContent='Enter the amount.';return;}
+      var o={id:x.id||uid(),date:date,category:cat,amount:r2(amt),gallons:cat==='Gas'?num($('xGal').value):null,
+        odometer:num($('xOdo').value),vendor:$('xVendor').value.trim(),notes:$('xNotes').value.trim(),created:x.created||Date.now()};
+      if(isNew)db.expenses.push(o);else db.expenses[db.expenses.findIndex(function(e){return e.id===x.id;})]=o;
+      save();closeSheet();render();toast(isNew?'Expense added':'Expense updated');
+    };
+  });
+}
+function delExpense(id){
+  var x=db.expenses.find(function(e){return e.id===id;});if(!x)return false;
+  if(!confirm('Delete '+x.category+' expense of '+money(x.amount)+' on '+fmtDate(x.date)+'? This cannot be undone.'))return false;
+  db.expenses=db.expenses.filter(function(e){return e.id!==id;});save();render();toast('Expense deleted');return true;
+}
+
+/* ---------- rendering ---------- */
+function elapsed(ms){var m=Math.floor(ms/60000);return Math.floor(m/60)+'h '+pad(m%60)+'m';}
+var tick;
+function renderShifts(){
+  var box=$('shiftAction');clearInterval(tick);
+  if(db.active){
+    var a=db.active;
+    box.innerHTML='<div class="card live"><div class="small"><span class="pulse"></span><b>Shift in progress</b></div>'+
+      '<div class="stat" id="elapsed">'+elapsed(Date.now()-a.startedAt)+'</div>'+
+      '<div class="muted small">Started '+fmtTime(a.startTime)+' · '+fmtDate(a.date)+'<br>Start odometer: <b>'+fmtNum(a.startOdo)+'</b></div>'+
+      '<button class="btn primary big mt" id="endShift">■ End shift</button></div>';
+    $('endShift').onclick=endShiftSheet;
+    tick=setInterval(function(){var el=$('elapsed');if(el)el.textContent=elapsed(Date.now()-a.startedAt);},30000);
+  }else{
+    var last=lastOdometer();
+    box.innerHTML='<button class="btn primary big" id="startShift">▶ Start shift</button>'+
+      '<div class="small muted" style="text-align:center;margin:8px 0 12px">'+(last!=null?'Last odometer: '+fmtNum(last):'Saves your start odometer and time')+'</div>';
+    $('startShift').onclick=startShiftSheet;
+  }
+  var list=db.shifts.slice().sort(byDateDesc);
+  var ym=todayStr().slice(0,7),mm=0,me=0;
+  list.forEach(function(s){if(s.date.slice(0,7)===ym){mm+=miles(s);me+=(s.earnings||0)+(s.tips||0);}});
+  $('shiftMonthLine').textContent='This month: '+fmtNum(mm)+' mi · '+money(me)+' pay';
+  $('shiftList').innerHTML=list.length?list.map(function(s){
+    var pay=(s.earnings||0)+(s.tips||0);
+    return '<li class="item"><div class="main"><div class="t">'+fmtDate(s.date)+'</div>'+
+      '<div class="s">'+fmtNum(s.startOdo)+' → '+fmtNum(s.endOdo)+(s.startTime?' · '+fmtTime(s.startTime)+(s.endTime?'–'+fmtTime(s.endTime):''):'')+(s.orders!=null?' · '+s.orders+' orders':'')+(s.notes?' · '+esc(s.notes):'')+'</div></div>'+
+      '<div class="amt">'+fmtNum(miles(s))+' mi<div class="small muted">'+(pay?money(pay):'')+'</div></div>'+
+      '<button class="iconbtn" aria-label="Edit" data-edit-shift="'+s.id+'">✎</button><button class="iconbtn del" aria-label="Delete" data-del-shift="'+s.id+'">🗑</button></li>';
+  }).join(''):'<li class="empty">No shifts yet. Tap “Start shift” when you head out.</li>';
+}
+function renderExpenses(){
+  var list=db.expenses.slice().sort(byDateDesc);
+  var ym=todayStr().slice(0,7),mt=0;list.forEach(function(e){if(e.date.slice(0,7)===ym)mt+=e.amount||0;});
+  $('expMonthLine').textContent='This month: '+money(mt);
+  $('expList').innerHTML=list.length?list.map(function(e){
+    var sub=[fmtDate(e.date)];if(e.vendor)sub.push(esc(e.vendor));if(e.gallons)sub.push(fmtNum(e.gallons,3)+' gal');if(e.odometer!=null)sub.push('odo '+fmtNum(e.odometer));if(e.notes)sub.push(esc(e.notes));
+    return '<li class="item"><div class="main"><div class="t">'+esc(e.category)+'</div><div class="s">'+sub.join(' · ')+'</div></div>'+
+      '<div class="amt">'+money(e.amount)+'</div>'+
+      '<button class="iconbtn" aria-label="Edit" data-edit-exp="'+e.id+'">✎</button><button class="iconbtn del" aria-label="Delete" data-del-exp="'+e.id+'">🗑</button></li>';
+  }).join(''):'<li class="empty">No expenses yet. Log gas, oil changes, repairs and more.</li>';
+}
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-edit-shift],[data-del-shift],[data-edit-exp],[data-del-exp]');if(!b)return;
+  if(b.dataset.editShift)editShiftSheet(b.dataset.editShift);
+  else if(b.dataset.delShift)delShift(b.dataset.delShift);
+  else if(b.dataset.editExp)editExpenseSheet(b.dataset.editExp);
+  else if(b.dataset.delExp)delExpense(b.dataset.delExp);
+});
+$('addShiftManual').onclick=function(){editShiftSheet(null);};
+$('addExpense').onclick=function(){editExpenseSheet(null);};
+
+/* ---------- summary ---------- */
+var fY=String(new Date().getFullYear()),fM='all';
+function inPeriod(d){if(fY!=='all'&&d.slice(0,4)!==fY)return false;if(fM!=='all'&&d.slice(5,7)!==fM)return false;return true;}
+function periodLabel(){if(fY==='all')return fM==='all'?'All time':MONTHS[+fM-1]+' (all years)';return fM==='all'?fY:MONTHS[+fM-1]+' '+fY;}
+function periodSlug(){return fY==='all'?'all-years'+(fM==='all'?'':'-'+fM):fY+(fM==='all'?'':'-'+fM);}
+function computeSummary(){
+  var sh=db.shifts.filter(function(s){return inPeriod(s.date);}),ex=db.expenses.filter(function(e){return inPeriod(e.date);});
+  var r={shifts:sh.length,miles:0,orders:0,earnings:0,tips:0,gallons:0,cats:{},expTotal:0,parking:0,deduction:0,byPeriod:{},periods:[]};
+  sh.forEach(function(s){var m=miles(s),p=periodForDate(s.date);r.miles+=m;r.orders+=s.orders||0;r.earnings+=s.earnings||0;r.tips+=s.tips||0;r.byPeriod[p.id]=(r.byPeriod[p.id]||0)+m;});
+  ex.forEach(function(e){r.cats[e.category]=(r.cats[e.category]||0)+(e.amount||0);r.expTotal+=e.amount||0;if(e.gallons)r.gallons+=e.gallons;if(e.category==='Parking/Tolls')r.parking+=e.amount||0;});
+  // rate periods to show: every period of the selected year that overlaps the month filter, plus any period with miles
+  var shown={};
+  if(fY!=='all')periodsForYear(fY).forEach(function(p){
+    if(fM!=='all'){var ms=fY+'-'+fM+'-01',me=fY+'-'+fM+'-31';if(p.end<ms||p.start>me)return;}
+    shown[p.id]=p;});
+  sh.forEach(function(s){var p=periodForDate(s.date);shown[p.id]=p;});
+  r.periods=Object.keys(shown).map(function(k){return shown[k];}).sort(function(a,b){return a.start.localeCompare(b.start);}).map(function(p){
+    var m=r1(r.byPeriod[p.id]||0),rate=rateOf(p),ded=r2(m*rate);r.deduction+=ded;
+    return {id:p.id,label:rpLabel(p),miles:m,rate:rate,deduction:ded,official:p.official,irsRate:p.rate,overridden:db.settings.periodRates[p.id]!=null};
+  });
+  r.miles=r1(r.miles);r.earnings=r2(r.earnings);r.tips=r2(r.tips);r.expTotal=r2(r.expTotal);r.parking=r2(r.parking);r.deduction=r2(r.deduction);
+  return r;
+}
+function fillFilters(){
+  var years={};years[new Date().getFullYear()]=1;
+  db.shifts.concat(db.expenses).forEach(function(x){if(x.date)years[x.date.slice(0,4)]=1;});
+  var ys=Object.keys(years).sort().reverse();
+  if(fY!=='all'&&ys.indexOf(fY)<0)fY=ys[0];
+  $('fYear').innerHTML=ys.map(function(y){return '<option value="'+y+'"'+(y===fY?' selected':'')+'>'+y+'</option>';}).join('')+'<option value="all"'+(fY==='all'?' selected':'')+'>All years</option>';
+  $('fMonth').innerHTML='<option value="all">All months</option>'+MONTHS.map(function(m,i){var v=pad(i+1);return '<option value="'+v+'"'+(v===fM?' selected':'')+'>'+m+'</option>';}).join('');
+}
+$('fYear').onchange=function(){fY=this.value;renderSummary();};
+$('fMonth').onchange=function(){fM=this.value;renderSummary();};
+$('rateRows').addEventListener('change',function(ev){
+  var inp=ev.target.closest('[data-period]');if(!inp)return;
+  var id=inp.dataset.period,base=num(inp.dataset.irs),v=num(inp.value);
+  if(v==null||v<0||v>5){alert('Enter a rate like 0.725');renderSummary();return;}
+  if(base!=null&&Math.abs(v-base)<1e-9&&inp.dataset.official==='1')delete db.settings.periodRates[id];else db.settings.periodRates[id]=v;
+  save();renderSummary();toast('Rate saved');
+});
+$('rateRows').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-reset-period]');if(!b)return;
+  delete db.settings.periodRates[b.dataset.resetPeriod];save();renderSummary();toast('Rate reset');
+});
+function renderSummary(){
+  fillFilters();
+  var r=computeSummary();
+  $('sumTitle').textContent='Summary · '+periodLabel();
+  $('kMiles').textContent=fmtNum(r.miles);
+  $('kShifts').textContent=r.shifts+' / '+fmtNum(r.orders,0);
+  $('kEarn').textContent=money(r.earnings);$('kTips').textContent=money(r.tips);
+  $('kPay').textContent=money(r.earnings+r.tips);$('kGal').textContent=fmtNum(r.gallons,3)+' gal';
+  var rows=CATS.filter(function(c){return r.cats[c];}).map(function(c){return '<tr><td>'+esc(c)+'</td><td>'+money(r.cats[c])+'</td></tr>';});
+  Object.keys(r.cats).forEach(function(c){if(CATS.indexOf(c)<0)rows.push('<tr><td>'+esc(c)+'</td><td>'+money(r.cats[c])+'</td></tr>');});
+  $('catTable').innerHTML=(rows.length?rows.join(''):'<tr><td class="muted">No expenses in this period</td><td></td></tr>')+'<tr class="total"><td>Total expenses</td><td id="kExpTotal">'+money(r.expTotal)+'</td></tr>';
+  $('rateRows').innerHTML=r.periods.map(function(p){
+    var tag=p.overridden?'<span class="chip custom">Custom</span>':(p.official?'<span class="chip">IRS rate</span>':'<span class="chip custom">Not confirmed</span>');
+    var hint=p.overridden?(p.official?'IRS rate is '+fmtRate(p.irsRate)+'. <button class="linkbtn" data-reset-period="'+p.id+'">Reset to IRS rate</button>':'Your rate. <button class="linkbtn" data-reset-period="'+p.id+'">Clear</button>')
+      :(p.official?'':'No built-in IRS rate for this period — using '+fmtRate(p.irsRate)+' (nearest known). Enter the official rate from irs.gov.');
+    return '<div class="rp" data-rp="'+p.id+'"><div class="rp-h"><span>'+esc(p.label)+'</span>'+tag+'</div>'+
+      '<div class="row"><div class="prefix"><span>$</span><input type="number" inputmode="decimal" step="0.005" min="0" aria-label="Rate per mile, '+esc(p.label)+'" data-period="'+p.id+'" data-irs="'+p.irsRate+'" data-official="'+(p.official?1:0)+'" value="'+p.rate.toFixed(3).replace(/0$/,'')+'"></div>'+
+      '<div class="rp-calc" data-rp-ded="'+p.id+'">'+money(p.deduction)+'<div class="small muted">'+fmtNum(p.miles)+' mi × '+fmtRate(p.rate)+'</div></div></div>'+
+      (hint?'<div class="small muted" style="margin-top:6px">'+hint+'</div>':'')+'</div>';
+  }).join('')||'<div class="empty">No shifts in this period</div>';
+  var withMiles=r.periods.filter(function(p){return p.miles;});
+  $('dedFormula').textContent=withMiles.length?withMiles.map(function(p){return fmtNum(p.miles)+' mi × '+fmtRate(p.rate);}).join(' + '):'No miles in this period';
+  $('kDed').textContent=money(r.deduction);
+  $('kPark').textContent=money(r.parking);
+  var std=r2(r.deduction+r.parking);
+  $('kStdTotal').textContent=money(std);
+  $('kActual').textContent=money(r.expTotal);
+  var diff=r2(std-r.expTotal);
+  $('compareNote').innerHTML=(r.miles||r.expTotal)?(diff>=0?'Standard mileage is <b>'+money(diff)+'</b> higher than your logged actual costs for this period.':'Logged actual costs are <b>'+money(-diff)+'</b> higher than standard mileage (before business-use %, and actual method also allows depreciation/lease costs not tracked here).'):'Add shifts and expenses to see a comparison.';
+  var bytes=(localStorage.getItem(KEY)||'').length;
+  $('storageInfo').textContent=db.shifts.length+' shifts · '+db.expenses.length+' expenses saved on this device ('+Math.ceil(bytes/1024)+' KB).';
+}
+
+/* ---------- export / import ---------- */
+function csvCell(v){
+  if(v==null)return '';
+  if(typeof v==='number')return String(v);
+  var s=String(v);
+  if(/^[=+\-@\t\r]/.test(s))s="'"+s; // prevent spreadsheet formula injection
+  return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
+}
+function toCsv(rows){return '\ufeff'+rows.map(function(r){return r.map(csvCell).join(',');}).join('\r\n')+'\r\n';}
+function download(name,content,type){
+  var blob=new Blob([content],{type:type});var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(url);a.remove();},1500);
+}
+function m2(n){return n==null?null:r2(n).toFixed(2);}
+function shiftsCsv(){
+  var list=db.shifts.filter(function(s){return inPeriod(s.date);}).sort(function(a,b){return -byDateDesc(a,b);});
+  var rows=[['Date','Start Time','End Time','Start Odometer','End Odometer','Business Miles','IRS Rate (USD/mile)','Est. Mileage Deduction (USD)','Orders/Batches','Earnings (USD)','Tips (USD)','Total Pay (USD)','Business Purpose','Notes']];
+  var tm=0,te=0,tt=0,to=0;
+  list.forEach(function(s){var m=miles(s),e=s.earnings||0,t=s.tips||0;tm+=m;te+=e;tt+=t;to+=s.orders||0;
+    var rt=rateForDate(s.date);rows.push([s.date,s.startTime||'',s.endTime||'',s.startOdo,s.endOdo,m,rt,m2(m*rt),s.orders==null?'':s.orders,m2(s.earnings),m2(s.tips),m2(e+t),'Instacart delivery',s.notes||'']);});
+  rows.push([]);
+  var sm=computeSummary();
+  sm.periods.forEach(function(p){if(p.miles)rows.push(['SUBTOTAL '+p.label,'','','','',p.miles,p.rate,m2(p.deduction),'','','','','','']);});
+  rows.push(['TOTAL ('+periodLabel()+')','','','','',r1(tm),'',m2(sm.deduction),to,m2(te),m2(tt),m2(te+tt),'','']);
+  return {name:'deliveries-mileage-'+periodSlug()+'.csv',csv:toCsv(rows),count:list.length};
+}
+function expensesCsv(){
+  var list=db.expenses.filter(function(e){return inPeriod(e.date);}).sort(function(a,b){return -byDateDesc(a,b);});
+  var rows=[['Date','Category','Vendor','Amount (USD)','Gallons','Price per Gallon (USD)','Odometer','Notes']],tot=0;
+  list.forEach(function(e){tot+=e.amount||0;rows.push([e.date,e.category,e.vendor||'',m2(e.amount),e.gallons==null?'':e.gallons,(e.gallons&&e.amount)?(e.amount/e.gallons).toFixed(3):'',e.odometer==null?'':e.odometer,e.notes||'']);});
+  rows.push([]);
+  var r=computeSummary();
+  CATS.forEach(function(c){if(r.cats[c])rows.push(['SUBTOTAL',c,'',m2(r.cats[c]),'','','','']);});
+  rows.push(['TOTAL ('+periodLabel()+')','','',m2(tot),'','','','']);
+  return {name:'car-expenses-'+periodSlug()+'.csv',csv:toCsv(rows),count:list.length};
+}
+$('expShiftsCsv').onclick=function(){var x=shiftsCsv();if(!x.count&&!confirm('No shifts in '+periodLabel()+'. Download an empty file anyway?'))return;download(x.name,x.csv,'text/csv;charset=utf-8');toast('Saved '+x.name);};
+$('expExpCsv').onclick=function(){var x=expensesCsv();if(!x.count&&!confirm('No expenses in '+periodLabel()+'. Download an empty file anyway?'))return;download(x.name,x.csv,'text/csv;charset=utf-8');toast('Saved '+x.name);};
+$('expJson').onclick=function(){
+  var out=JSON.parse(JSON.stringify(db));out.app='Delivery & Car Tracker';out.exportedAt=new Date().toISOString();
+  download('delivery-car-tracker-backup-'+todayStr()+'.json',JSON.stringify(out,null,2),'application/json');toast('Backup downloaded');
+};
+$('impJsonBtn').onclick=function(){$('impJson').value='';$('impJson').click();};
+$('impJson').onchange=function(){
+  var f=this.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    try{
+      var d=JSON.parse(rd.result);
+      if(!d||!Array.isArray(d.shifts)||!Array.isArray(d.expenses))throw new Error('Not a Delivery & Car Tracker backup');
+      if(!confirm('Restore '+d.shifts.length+' shifts and '+d.expenses.length+' expenses? This REPLACES the data currently on this device.'))return;
+      db=normalize({shifts:d.shifts,expenses:d.expenses,active:d.active||null,settings:d.settings||{},version:d.version});
+      save();render();toast('Backup restored');
+    }catch(e){alert('Could not restore: '+e.message);}
+  };
+  rd.readAsText(f);
+};
+
+/* ---------- boot ---------- */
+function render(){
+  if(curTab==='shifts')renderShifts();else if(curTab==='expenses')renderExpenses();else renderSummary();
+  $('hdrSub').textContent=db.active?'● Shift in progress since '+fmtTime(db.active.startTime):'Mileage & expenses for tax time';
+}
+window.addEventListener('storage',function(e){if(e.key===KEY){db=load();render();}});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)render();});
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){});
+render();
+window.__dct={computeSummary:computeSummary,shiftsCsv:shiftsCsv,expensesCsv:expensesCsv,KEY:KEY};
+})();
+</script>
+</body>
+</html>
